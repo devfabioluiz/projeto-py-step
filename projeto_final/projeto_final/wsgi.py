@@ -1,0 +1,12 @@
+import os
+import sys
+from django.core.wsgi import get_wsgi_application
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+
+# Define application para o Django local funcionar
+application = get_wsgi_application()
+
+# Define app apontando para a mesma instância para a Vercel aceitar
+app = application
